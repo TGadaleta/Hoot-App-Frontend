@@ -8,6 +8,7 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import SignupForm from "./components/SignupForm/SignupForm";
 import SigninForm from "./components/SigninForm/SigninForm";
 import HootDetails from "./components/HootDetails/HootDetails";
+import CommentForm from "./components/CommentForm/CommentForm";
 import * as authService from "../src/services/authService"; // import the authservice
 import * as hootService from "../src/services/hootService";
 
@@ -35,8 +36,10 @@ const App = () => {
   };
 
   const handleUpdateHoot = async (hootId, hootFormData) => {
-    const updatedHoot = await hootService.update(hootId, hootFormData)
-    setHoots(hoots.map((hoot) => (hoot._id === updatedHoot._id ? updatedHoot : hoot)))
+    const updatedHoot = await hootService.update(hootId, hootFormData);
+    setHoots(
+      hoots.map((hoot) => (hoot._id === updatedHoot._id ? updatedHoot : hoot))
+    );
     navigate(`/hoots/${hootId}`);
   };
 
@@ -72,6 +75,10 @@ const App = () => {
               <Route
                 path="/hoots/:hootId/edit"
                 element={<HootForm handleUpdateHoot={handleUpdateHoot} />}
+              />
+              <Route
+                path="/hoots/:hootId/comments/:commentId/edit"
+                element={<CommentForm />}
               />
             </>
           ) : (

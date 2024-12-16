@@ -72,9 +72,9 @@ const HootDetails = (props) => {
                   </p>
                 </header>
                 <p>{comment.text}</p>
-                {comment.author._id === user._id && (
+                {comment.author === user._id && (
                   <>
-                  <Link to={`/hoots/${hootId}/comments/${comment._id}`}>Edit Comment</Link>
+                  <Link to={`/hoots/${hootId}/comments/${comment._id}/edit`}>Edit Comment</Link>
                   <button
                   onClick={() => {
                     handleDeleteComment(comment._id, hootId)
