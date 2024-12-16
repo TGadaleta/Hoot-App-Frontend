@@ -1,7 +1,6 @@
 // src/components/CommentForm/CommentForm.jsx
 
 import { useState, useEffect } from 'react';
-
 import * as hootService from '../../services/hootService';
 
 const CommentForm = (props) => {

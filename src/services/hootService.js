@@ -87,4 +87,19 @@ const deleteHoot = async (hootId) => {
   }
 };
 
-export { index, show, create, update, createComment, deleteHoot };
+const deleteComment = async (commentId,hootId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${hootId}/comments/${commentId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+    return res.json();
+  } catch (error) {
+    console.log(error)
+    
+  }
+}
+
+export { index, show, create, update, createComment, deleteHoot, deleteComment };
