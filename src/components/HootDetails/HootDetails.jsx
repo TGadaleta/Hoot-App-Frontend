@@ -3,11 +3,9 @@ import { useParams, Link } from "react-router-dom";
 import { AuthedUserContext } from "../../App";
 import CommentForm from "../CommentForm/CommentForm";
 import * as hootService from "../../services/hootService";
-import { useNavigate } from 'react-router-dom'
 
 const HootDetails = (props) => {
   const user = useContext(AuthedUserContext);
-  const navigate = useNavigate();
   const { hootId } = useParams();
   const [hoot, setHoot] = useState();
 
